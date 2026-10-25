@@ -57,8 +57,8 @@ ol,ul{list-style:none;padding:0}
 .hero-nav a:hover::after{transform:scaleX(1);transform-origin:left center}
 .hero .wm-box{margin-top:auto}
 .hero-grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--gutter);row-gap:24px;margin-top:clamp(18px,2.4vw,32px);align-items:end}
-.hero-lead{grid-column:1/span 6;font-size:clamp(18px,1.55vw,24px);line-height:1.22;letter-spacing:-.02em;max-width:30em;text-wrap:pretty}
-.hero-side{grid-column:9/span 4;display:flex;flex-direction:column;align-items:flex-end;gap:16px}
+.hero-lead{grid-column:1/span 5;font-size:clamp(18px,1.55vw,24px);line-height:1.22;letter-spacing:-.02em;max-width:30em;text-wrap:pretty}
+.hero-side{grid-column:7/span 6;display:flex;flex-direction:column;align-items:flex-end;gap:16px}
 .hero-cta{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
 .hero-foot{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gutter);margin-top:clamp(22px,3vw,44px);padding-top:14px;border-top:1px solid var(--line)}
 .hero-foot>:nth-child(2),.hero-foot>:nth-child(3){text-align:center}
@@ -158,6 +158,11 @@ ol,ul{list-style:none;padding:0}
 .deep .btn::before{background:var(--on-deep)}
 .deep .btn:hover{color:var(--deep);border-color:var(--on-deep)}
 .pill-tag{display:inline-flex;align-items:center;height:24px;padding:0 11px;border-radius:99px;border:1px solid;font-family:var(--font-label);font-weight:600;font-size:10.5px;text-transform:uppercase;white-space:nowrap}
+.avail-big{display:flex;flex-direction:column;align-items:flex-end;gap:6px;text-align:right}
+.avail-line{display:flex;align-items:center;gap:12px;font-size:clamp(20px,2.3vw,34px);line-height:1.1;letter-spacing:-.03em;font-weight:500}
+.avail-sub{color:var(--ink-2);font-size:12px}
+.avail-line .dot{width:10px;height:10px;border-radius:99px;background:var(--accent);flex:0 0 auto;animation:ping 2.4s var(--ease-out) infinite}
+@media(max-width:899px){.avail-big{align-items:flex-start;text-align:left}}
 .avail{display:inline-flex;align-items:center;gap:8px}
 .avail .dot{width:7px;height:7px;border-radius:99px;background:var(--accent);animation:ping 2.4s var(--ease-out) infinite}
 @keyframes ping{0%{box-shadow:0 0 0 0 rgba(228,147,102,.7)}70%,100%{box-shadow:0 0 0 9px rgba(228,147,102,0)}}
@@ -320,7 +325,7 @@ html.js-motion .split-line{transform:translateY(110%)}
 .hero .wm .ch-in.in-view,.foot-wm .wm .ch-in.in-view{transition:transform 1.2s var(--ease-out)}
 
 /* responsive */
-@media(max-width:1100px){.hero-lead{grid-column:1/span 7}.hero-side{grid-column:8/span 5}.row-btn,.row-body>div{grid-template-columns:2fr 5fr 4fr 28px}}
+@media(max-width:1100px){.hero-lead{grid-column:1/span 6}.hero-side{grid-column:7/span 6}.row-btn,.row-body>div{grid-template-columns:2fr 5fr 4fr 28px}}
 @media(max-width:899px){
  .hero-nav{display:none}.hero{padding-top:96px}
  .hero-grid{grid-template-columns:1fr}.hero-lead,.hero-side{grid-column:1/-1}
@@ -393,7 +398,11 @@ html.js-motion .split-line{transform:translateY(110%)}
     <div class="hero-grid">
       <p class="hero-lead" data-intro><span data-fr="Étudiant ingénieur en IA & bases de données, entre l'ENSAM Meknès et l'Université de Bourgogne.">Engineering student in AI &amp; databases, between ENSAM Meknès and the Université de Bourgogne.</span> <span data-fr="Services RAG, pipelines de deep learning et backends FastAPI, menés d'une idée jusqu'à un système qui tourne.">RAG services, deep-learning pipelines and FastAPI backends, taken from an idea to a system that runs.</span></p>
       <div class="hero-side" data-intro>
-        <p class="avail label"><span class="dot"></span><span data-fr="Alternance (disponible maintenant) ou stage PFE dès le 29 mars 2027, 4 mois minimum (ouvert à plus)">Work-study (alternance), available now, or PFE internship from 29 March 2027, 4 months minimum (open to more)</span></p>
+        <div class="avail-big">
+          <p class="avail-line"><span class="dot"></span><span data-fr="Alternance : disponible maintenant">Work-study (alternance): available now</span></p>
+          <p class="avail-line"><span class="dot"></span><span data-fr="Stage PFE : dès le 29 mars 2027">PFE internship: from 29 March 2027</span></p>
+          <p class="avail-sub label" data-fr="4 mois minimum, ouvert à plus">4 months minimum, open to more</p>
+        </div>
         <div class="hero-cta">
           <a class="btn solid" href="#projects"><span data-fr="Voir les projets">See projects</span><span class="dot"></span></a>
           <a class="btn" href="assets/CV_Abdellah_Baqua_FR.pdf" target="_blank" rel="noopener"><span data-fr="Lire mon CV">Read my CV</span></a>
@@ -418,7 +427,6 @@ html.js-motion .split-line{transform:translateY(110%)}
       </figure>
       <div class="about-copy">
         <p data-reveal data-fr="J'aime maîtriser tout le chemin : la donnée et sa base, le modèle qui l'exploite, l'API qui l'expose et l'interface derrière laquelle ça se livre. Ce que je préfère, c'est construire des choses qui remplacent un processus manuel répétitif et qui continuent de tourner.">I like owning the whole path: the data and its database, the model that uses it, the API that exposes it and the interface it ships behind. What I enjoy most is building things that replace a repetitive manual process and keep running.</p>
-        <p class="note" data-reveal data-fr="En dehors des cours : musique (guitare et basse), fitness, et HEMA, les arts martiaux historiques européens.">Outside of class: music (guitar and bass), fitness, and HEMA, historical European martial arts.</p>
         <dl class="facts" data-reveal>
           <div><dt class="label" data-fr="Actuellement">Currently</dt><dd data-fr="Master 2 Bases de Données & IA (UBE, Dijon) et 5e année du cycle ingénieur IA & Technologies des Données, ENSAM Meknès">Master 2 Databases &amp; AI (UBE, Dijon) and fifth year of the AI &amp; Data Technologies engineering cycle, ENSAM Meknès</dd></div>
           <div><dt class="label" data-fr="Recherche">Looking for</dt><dd data-fr="Une alternance (disponible immédiatement) ou un stage de fin d'études (PFE) en IA et data science, à partir du 29 mars 2027, 4 mois minimum (ouvert à plus)">A work-study (alternance), available now, or an end-of-studies internship (PFE) in AI and data science, from 29 March 2027, 4 months minimum (open to more)</dd></div>
