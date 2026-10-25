@@ -444,8 +444,8 @@ html.js-motion .split-line{transform:translateY(110%)}
       <p data-reveal data-fr="Les outils avec lesquels j'ai livré quelque chose de bout en bout. Les plus utilisés sont mis en avant.">The tools I have shipped something end to end with. The most used ones are highlighted.</p>
     </div>
     <ol class="xp-list">
-      <li class="xp" data-reveal><span class="xp-n">01</span><h3 data-fr="Backend & API REST">Backend &amp; REST APIs</h3><ul class="xp-tags label"><li class="hi">Python</li><li class="hi">FastAPI</li><li class="hi">API REST</li><li>SQL</li><li>SQLite</li><li>PostgreSQL</li></ul></li>
-      <li class="xp" data-reveal><span class="xp-n">02</span><h3 data-fr="LLM & IA générative">LLM &amp; generative AI</h3><ul class="xp-tags label"><li class="hi">LLM</li><li class="hi">RAG</li><li class="hi">LangChain</li><li>Pinecone</li></ul></li>
+      <li class="xp" data-reveal><span class="xp-n">01</span><h3 data-fr="Backend & API REST">Backend &amp; REST APIs</h3><ul class="xp-tags label"><li class="hi">Python</li><li class="hi">FastAPI</li><li class="hi">API REST</li><li>Spring Boot</li><li>SQL</li><li>SQLite</li><li>PostgreSQL</li></ul></li>
+      <li class="xp" data-reveal><span class="xp-n">02</span><h3 data-fr="LLM & IA générative">LLM &amp; generative AI</h3><ul class="xp-tags label"><li class="hi">LLM</li><li class="hi">RAG</li><li class="hi">LangChain</li><li class="hi">LangGraph</li><li>Pinecone</li></ul></li>
       <li class="xp" data-reveal><span class="xp-n">03</span><h3 data-fr="Machine & deep learning">Machine &amp; deep learning</h3><ul class="xp-tags label"><li class="hi">Machine Learning</li><li class="hi">PyTorch</li><li class="hi">TensorFlow</li><li>Keras</li><li>OpenCV</li><li>MediaPipe</li></ul></li>
       <li class="xp" data-reveal><span class="xp-n">04</span><h3 data-fr="Outils & dev">Tools &amp; dev</h3><ul class="xp-tags label"><li class="hi">Git</li><li>Docker</li><li>Streamlit</li><li>Next.js</li><li>PyQt6</li></ul></li>
       <li class="xp" data-reveal><span class="xp-n">05</span><h3 data-fr="Langages">Languages</h3><ul class="xp-tags label"><li class="hi">Python</li><li>C++</li><li>Java</li><li>SQL</li><li>TypeScript</li><li>R</li></ul></li>
@@ -643,9 +643,9 @@ const P=[
  {t:"Docmind",tf:"Docmind",meta:["2026"],feat:["Featured","À la une"],
   dom:["Generative AI · RAG · REST API","IA générative · RAG · API REST"],
   cap:["Ingest, chunk, embed, retrieve: the RAG pipeline behind a FastAPI endpoint.","Ingestion, découpage, embedding, recherche : le pipeline RAG derrière une API FastAPI."],
-  d:["A document-ingestion and data-extraction system built on a RAG architecture over an LLM, and exposed through a FastAPI REST API. Documents are parsed and embedded into a Pinecone vector index, and questions are answered from the retrieved passages with LangChain orchestrating the chain.",
-     "Un système d'ingestion de documents et d'extraction de données reposant sur une architecture RAG (LLM), exposé via une API REST FastAPI. Les documents sont analysés puis vectorisés dans un index Pinecone, et les questions reçoivent une réponse à partir des passages retrouvés, la chaîne étant orchestrée par LangChain."],
-  tags:["Python","LangChain","FastAPI","Pinecone","RAG"],priv:true},
+  d:["A document-ingestion and data-extraction system built on a RAG architecture over an LLM, and exposed through a FastAPI REST API. Documents are parsed and embedded into a Pinecone vector index. A LangGraph agent then retrieves passages, grades their relevance, rewrites the query when nothing useful comes back, and answers with cited sources.",
+     "Un système d'ingestion de documents et d'extraction de données reposant sur une architecture RAG (LLM), exposé via une API REST FastAPI. Les documents sont analysés puis vectorisés dans un index Pinecone. Un agent LangGraph retrouve les passages, évalue leur pertinence, reformule la requête si rien d'utile n'est trouvé, puis répond avec les sources citées."],
+  tags:["Python","LangChain","LangGraph","FastAPI","Pinecone","RAG"],priv:true},
  {t:"Makerkit VRPTW Platform",tf:"Plateforme Makerkit VRPTW",meta:["2026"],feat:["Featured","À la une"],
   dom:["Optimisation · Web platform · Logistics","Optimisation · Plateforme web · Logistique"],
   cap:["One depot, time-windowed stops, three optimised tours drawn on real roads.","Un dépôt, des arrêts à fenêtres horaires, trois tournées optimisées sur routes réelles."],
@@ -817,7 +817,7 @@ $("#year").textContent=new Date().getFullYear();
 /* ---------- sheet ---------- */
 const sheet=$("#sheet");let cur=0;
 const T=(a)=>a[lang==="fr"?1:0];
-const BOLD=["Autoencoder-Transformer","Google OR-Tools","OpenRouteService","VRP/VRPTW","deep learning","machine-learning","machine learning","reinforcement-learning","apprentissage par renforcement","RAG","LLM","FastAPI","LangChain","Pinecone","SQLite","PyQt6","Next.js","I-Sense","PPO","DQN","CNN","PyTorch","Streamlit","Plotly","XGBoost","LSTM","ViZDoom","anomalies","anomalies","reliability and traceability","fiabilité et la traçabilité","replacing repetitive manual work","remplacement de processus manuels répétitifs","automatically","automatiquement","real road itineraries","itinéraires et temps de trajet réels","API REST","REST API"];
+const BOLD=["Autoencoder-Transformer","Google OR-Tools","OpenRouteService","VRP/VRPTW","deep learning","machine-learning","machine learning","reinforcement-learning","apprentissage par renforcement","RAG","LLM","FastAPI","LangChain","LangGraph","Pinecone","SQLite","PyQt6","Next.js","I-Sense","PPO","DQN","CNN","PyTorch","Streamlit","Plotly","XGBoost","LSTM","ViZDoom","anomalies","anomalies","reliability and traceability","fiabilité et la traçabilité","replacing repetitive manual work","remplacement de processus manuels répétitifs","automatically","automatiquement","real road itineraries","itinéraires et temps de trajet réels","API REST","REST API"];
 const boldRe=new RegExp("(?<![\\w-])("+[...new Set(BOLD)].sort((a,b)=>b.length-a.length).map(s=>s.replace(/[.*+?^${}()|[\]\\\/]/g,"\\$&")).join("|")+")(?![\\w-])","g");
 const bold=s=>s.replace(boldRe,"<strong>$1</strong>");
 const arrow='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>';
